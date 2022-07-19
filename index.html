@@ -97,15 +97,204 @@
                     </ul>
                 </div>
                 <div class="container2_1wrap">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <div class="container2_1flex1">
+                        
+                            <div class="2boxwrap">
+                                <div class="2box">
 
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                                </div>
+                            </div>
+                            <div class="2boxwrap">
+                                <div class="2box">
+                                    
+                                </div>
+                            </div>
+                            <div class="2boxwrap">
+                                <div class="2box">
+                                    
+                                </div>
+                            </div>
+                            <div class="2boxwrap">
+                                <div class="2box">
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="container2_1flex2">
+                        <div class="2boxwrap">
+                            <div class="2box">
+                                
+                            </div>
+                        </div>
+                        <div class="2boxwrap">
+                            <div class="2box">
+                                
+                            </div>
+                        </div>
+                        <div class="2boxwrap">
+                            <div class="2box">
+                                
+                            </div>
+                        </div>
+                        <div class="2boxwrap">
+                            <div class="2box">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container2_2wrap">
+                    <div class="container2_2flex1">
+                        
+                            <div class="3boxwrap">
+                                <div class="3box">
+
+                                </div>
+                            </div>
+                            <div class="3boxwrap">
+                                <div class="3box">
+
+                                </div>
+                            </div>
+                            <div class="3boxwrap">
+                                <div class="3box">
+
+                                </div>
+                            </div>
+                            <div class="3boxwrap">
+                                <div class="3box">
+
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="container2_2flex2">
+                        <div class="3boxwrap">
+                            <div class="3box">
+
+                            </div>
+                        </div>
+                        <div class="3boxwrap">
+                            <div class="3box">
+
+                            </div>
+                        </div>
+                        <div class="3boxwrap">
+                            <div class="3box">
+
+                            </div>
+
+                        </div>
+                        <div class="3boxwrap">
+                            <div class="3box">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container2_3wrap">
+                    <div class="container2_3flex1">
+                        
+                            <div class="4boxwrap">
+                                <div class="4box">
+
+                                </div>
+                            </div>
+                            <div class="4boxwrap">
+                                <div class="4box">
+
+                                </div>
+                            </div>
+                            <div class="4boxwrap">
+                                <div class="4box">
+
+                                </div>
+                            </div>
+                            <div class="4boxwrap">
+                                <div class="4box">
+
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="container2_3flex2">
+                        <div class="4boxwrap">
+                            <div class="4box">
+
+                            </div>
+                        </div>
+                        <div class="4boxwrap">
+                            <div class="4box">
+
+                            </div>
+                        </div>
+                        <div class="4boxwrap">
+                            <div class="4box">
+
+                            </div>
+                        </div>
+                        <div class="4boxwrap">
+                            <div class="4box">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container2_4wrap">
+                    <div class="container2_4flex1">
+                        
+                            <div class="5boxwrap">
+                                <div class="5box">
+
+                                </div>
+                            </div>
+                            <div class="5boxwrap">
+                                <div class="5box">
+
+                                </div>
+                            </div>
+                            <div class="5boxwrap">
+                                <div class="5box">
+
+                                </div>
+                            </div>
+                            <div class="5boxwrap">
+                                <div class="5box">
+
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="container2_4flex2">
+                        <div class="5boxwrap">
+                            <div class="5box">
+
+                            </div>
+                        </div>
+                        <div class="5boxwrap">
+                            <div class="5box">
+
+                            </div>
+                        </div>
+                        <div class="5boxwrap">
+                            <div class="5box">
+
+                            </div>
+                        </div>
+                        <div class="5boxwrap">
+                            <div class="5box">
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -140,6 +329,120 @@
             // $(".box2").append("<p>" + str2 + "</p>");
 
         });
+
+            // 추천도서
+            $.ajax({
+                method: "GET",
+                url: "https://dapi.kakao.com/v3/search/book?target=title",
+                data: { query: "추천" },
+                headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+                .done(function (msg) {
+
+                    // for문 (8개)
+                    var divs = document.getElementsByClassName('2box');
+
+                    for (var i = 0; i < divs.length; i++) {
+
+                        $(".2box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                        $(".2box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
+                        $(".2box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
+                        $(".2box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+
+                        var str = msg.documents[i].contents;
+                        var str2 = str.substring(0, 60);
+
+                    }
+                    
+                });
+
+
+            // 화제의 신간
+
+            $.ajax({
+                method: "GET",
+                url: "https://dapi.kakao.com/v3/search/book?target=title",
+                data: { query: "베스트" },
+                headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('3box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".3box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                    $(".3box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
+                    $(".3box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
+                    $(".3box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+            // 스테디셀러
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "스테디셀러" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('4box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".4box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                    $(".4box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
+                    $(".4box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
+                    $(".4box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+                    
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+
+
+                }
+                
+            });
+
+
+            // 코믹            
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "코믹" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('5box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".5box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                    $(".5box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
+                    $(".5box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
+                    $(".5box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+    </script>
+    <script>
+
     </script>
 </body>
 </html>
