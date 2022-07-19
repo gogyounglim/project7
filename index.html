@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/sass.css">
 </head>
 <body>
@@ -78,9 +79,67 @@
 
     <div id="container2Wrap" >
         <div class="container2">
+            <div>
+                <p>오늘의 책</p>
+            </div>
+            <div class="container2box">
+                <div class="box1"></div>
+                <div class="box2"></div>
+            </div>
 
+            <div class="container2_1">
+                <div>
+                    <ul>
+                        <li>MD추천도서</li>
+                        <li>화제의 신간</li>
+                        <li>스테디셀러</li>
+                        <li>코믹</li>
+                    </ul>
+                </div>
+                <div class="container2_1wrap">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
         </div>
+
     </div>
 
+
+    <script>
+
+        // 오늘의 책
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "미움받을 용기" },
+            headers: { Authorization: "KakaoAK 577f80ae52111b712428a925a329793c" }
+        })
+        .done(function (msg) {
+
+            $(".box1").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+            
+            
+            $(".box2").append("<h3>" + msg.documents[0].title + "</h3><br>");
+            $(".box2").append("<h6>"+ "</h6>");
+            $(".box2").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+            $(".box2").append("<p>" + msg.documents[0].contents	 + "</p>");
+            
+
+            var str = msg.documents[0].contents;
+            var str2 = str.substring(0, 60);
+
+            // $(".box2").append("<p>" + str2 + "</p>");
+
+        });
+    </script>
 </body>
 </html>
