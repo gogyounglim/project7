@@ -378,10 +378,35 @@
             <div class="contanier5_1flex1">
                 <div class="9box"></div>
             </div>
-            <div class="contanier5_1flex2"></div>
+            <div class="contanier5_1flex2">
+                <div class="10box"></div>
+            </div>
         </div>
         <div class="contanier5_2">
+            <div class="contanier5_2flex1">
+                <div class="11box">
 
+                </div>
+                <div class="12box">
+
+                </div>
+            </div>
+            <div class="contanier5_2flex2">
+                <div class="11box">
+
+                </div>
+                <div class="12box">
+
+                </div>
+            </div>
+            <div class="contanier5_2flex3">
+                <div class="11box">
+
+                </div>
+                <div class="12box">
+
+                </div>
+            </div>
         </div>
     </div>
     
@@ -595,29 +620,90 @@
                 }
                 
             });
-
+            // 요즘뜨는책 interval 사용 변경
             $.ajax({
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
-            data: { query: "밥" },
+            data: { query: "요즘" },
             headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
             })
             .done(function (msg) {
+                var i = 0
+                var y = -1
+                var length1 = 1
+                let b = 0
+                    
+                setInterval(function(){
+                    if(i>=3){
+                        i=0
+                        y=2
+                    }else{
+                        i= i+1
+                        y= y+1
+                    }
+                    if(y>=3){
+                      y=0  
+                    }
 
+                    console.log(i,"i");
+                    $('.9box img').remove();
+                    $('.10box h6').remove();
+                    $('.10box h3').remove();
+                    $('.10box p').remove();
+                    $('.10box br').remove();
+                    
+                    $('.11box img').remove();
+                    $('.12box h3').remove();
+                    $('.12box br').remove();
+
+
+                    $(".9box").append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                    $(".10box").append("<h3>" + msg.documents[i].title + "</h3><br>");
+                    $(".10box").append("<h6>"+ "</h6>");
+                    $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                    $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
+                    
+         
+                    for(a=1; a<4; a++){            
+                        let arr1 = [2,3,0,3,0,1,0,1,2,1,2,3]; //순서 맟추기위해 변수로 
+                        let arr2 = [3,0,1];
+                        let arr3 = [0,1,2];
+                        let [num1,num2,num3]=arr1;
+                        
+                        if(b==12){
+                            b=0;
+                        };
+
+                        $(".11box").eq(a-1).append("<img src='" + msg.documents[arr1[b]].thumbnail + "'/>");
+                        $(".12box").eq(a-1).append("<h3>" + msg.documents[arr1[b]].title + "</h3><br>");
+
+                        
+                        console.log(arr1[b]);
+
+                        b=b+1
+
+                    }
+
+
+
+                },3000)
                 
+
                 var divs = document.getElementsByClassName('9box');
-
-                for (var i = 0; i < divs.length; i++) {
-
-                    $(".9box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
-
-
+                    $(".9box").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+                    $(".10box").append("<h3>" + msg.documents[0].title + "</h3><br>");
+                    $(".10box").append("<h6>"+ "</h6>");
+                    $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                    $(".10box").append("<p>" + msg.documents[0].contents + "</p>");
+                    
                     var str = msg.documents[i].contents;
                     var str2 = str.substring(0, 60);
-
+                for(a=1; a<4; a++){
+                    $(".11box").eq(a-1).append("<img src='" + msg.documents[a].thumbnail + "'/>");
+                    $(".12box").eq(a-1).append("<h3>" + msg.documents[a].title + "</h3><br>");
                 }
-                
             });
+
 
 
             $(function(){ 

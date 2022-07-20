@@ -653,6 +653,7 @@ header{
     height: 217px;
     background-color: wheat;
     margin: 0 auto;
+    transition: all 1s;
     >div:nth-child(1){
         width: 20%;
         height: 100%;
@@ -671,4 +672,41 @@ header{
         margin: 16px 0 0 20px;
     }
 }
+
+.contanier5_2{
+    width: 960px;
+    height: 150px;
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    >div{
+        width: 33.33%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        >div:nth-child(1){
+            width: 40%;
+            height: 100%;
+            img{
+                width: 70px;
+                height: 100px;
+                margin-top: 20px;
+                margin-left: 20px;
+            }
+
+        }
+        >div:nth-child(2){
+            width: 60%;
+            height: 100%;
+
+
+        }
+    }
+}
+
+
+
+
+
 
