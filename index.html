@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/sass.css">
 </head>
 <body>
+    <div id="bgWrap"></div>
     <header>
         <div id="headermain">
             <div class="headerMenu">
@@ -36,10 +37,10 @@
                                 <option value="통합검색">도서명</option>
                                 <option value="통합검색">저자명</option>
                             </select>
-                             <input type="text" class="mainserch">
-                             <div class="btnserch">
+                                <input type="text" class="mainserch">
+                                <div class="btnserch">
 
-                             </div>
+                                </div>
                         </div>
                     </div>
                     <div class="headerSmallimg">
@@ -88,8 +89,8 @@
             </div>
 
             <div class="container2_1">
-                <div>
-                    <ul>
+                <div >
+                    <ul class="menu2">
                         <li>MD추천도서</li>
                         <li>화제의 신간</li>
                         <li>스테디셀러</li>
@@ -145,7 +146,6 @@
                     </div>
 
                 </div>
-
                 <div class="container2_2wrap">
                     <div class="container2_2flex1">
                         
@@ -246,7 +246,6 @@
                     </div>
 
                 </div>
-
                 <div class="container2_4wrap">
                     <div class="container2_4flex1">
                         
@@ -296,12 +295,97 @@
                     </div>
 
                 </div>
-
             </div>
+
+
         </div>
 
     </div>
+    <div id="container3wrap">
+        <div class="container3tit">
+            <p>주간 베스트</p>
+        </div>
+        <div class="container3">
+            <div class="6boxwrap">
+                <div class="6box">
 
+                </div>
+            </div>
+            <div class="6boxwrap">
+                <div class="6box">
+
+                </div>
+            </div>
+            <div class="6boxwrap">
+                <div class="6box">
+
+                </div>
+            </div>
+            <div class="6boxwrap">
+                <div class="6box">
+
+                </div>
+            </div>
+            <div class="6boxwrap">
+                <div class="6box">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container4tit">
+        <p>테마로 보는 책</p>
+    </div>
+    <div id="container4wrap">
+
+        <div class="container4">
+            <div class="container4flex">
+                <div>
+                    <div class="container4flexboxWrap">
+                        <p><a href=""> · 힐링이 필요해</a></p>
+                        <div>
+                            <div class="7box"></div>
+                            <div class="7box"></div>
+                            <div class="7box"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container4flex">
+                <div>
+                    <div class="container4flexboxWrap">
+                        <p><a href=""> · 맛있는 책</a></p>
+                        <div>
+                            <div class="8box"></div>
+                            <div class="8box"></div>
+                            <div class="8box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    <div class="container5tit">
+        <p>요즘 뜨는 책</p>
+    </div>
+    <div id="container5wrap">
+        <div class="contanier5_1">
+            <div class="contanier5_1flex1">
+                <div class="9box"></div>
+            </div>
+            <div class="contanier5_1flex2"></div>
+        </div>
+        <div class="contanier5_2">
+
+        </div>
+    </div>
+    
+    
 
     <script>
 
@@ -437,6 +521,138 @@
                     var str2 = str.substring(0, 60);
 
                 }
+                
+            });
+
+
+            // 주간 베스트
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "베스트" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('6box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".6box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "힐링" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('7box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".7box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "밥" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('8box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".8box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "밥" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('9box');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".9box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
+
+
+            $(function(){ 
+                $('.menu2 li:nth-child(2)').click(function(){
+                    $(".container2_1wrap").fadeOut(100);
+                    $(".container2_2wrap").fadeIn(100);
+                    $(".container2_3wrap").fadeOut(100);
+                    $(".container2_4wrap").fadeOut(100);
+                })
+                $('.menu2 li:nth-child(1)').click(function(){
+                    $(".container2_1wrap").fadeIn(100);
+                    $(".container2_2wrap").fadeOut(100);
+                    $(".container2_3wrap").fadeOut(100);
+                    $(".container2_4wrap").fadeOut(100);
+                })
+                $('.menu2 li:nth-child(3)').click(function(){
+                    $(".container2_1wrap").fadeOut(100);
+                    $(".container2_2wrap").fadeOut(100);
+                    $(".container2_3wrap").fadeIn(100);
+                    $(".container2_4wrap").fadeOut(100);
+                })
+                $('.menu2 li:nth-child(4)').click(function(){
+                    $(".container2_1wrap").fadeOut(100);
+                    $(".container2_2wrap").fadeOut(100);
+                    $(".container2_3wrap").fadeOut(100);
+                    $(".container2_4wrap").fadeIn(100);
+                })
+
+                $('.menu2 li:nth-child(2)').mouseover(function(){
+                    $('.menu2 li:nth-child(2)').css('background-color','#E5F7EB');
+                    $('.menu2 li:nth-child(2)').css('border-bottom','0px');
+                }).mouseleave(function(){
+                    $('.menu2 li:nth-child(2)').css('background-color','white');
+                    $('.menu2 li:nth-child(2)').css('border-bottom','1px solid #999');
+                }); 
                 
             });
 
