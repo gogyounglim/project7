@@ -443,14 +443,123 @@
     </div>
     <div id="container6wrap">
         <div class="container6">
-            <div>
+            <div class="box13">
 
             </div>
-            <div>
+            <div class="box14">
 
             </div>
         </div>
+        <div class="container6_1">
+            <div class="box15wrap">
+                <div class="box15"></div>
+                <div class="box15_1"></div>
+            </div>
+            <div class="box15wrap">
+                <div class="box15"></div>
+                <div class="box15_1"></div>
+            </div>
+            <div class="box15wrap">
+                <div class="box15"></div>
+                <div class="box15_1"></div>
+            </div>
+        </div>
     </div>
+
+    <div id="container7wrap">
+        <div class="container7">
+            <div>
+                <div>
+                    <img src="img/main/quick01.png" alt="">
+                </div>
+                <div>
+                    <p>출석체크</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="img/main/quick02.png" alt="">
+                </div>
+                <div>
+                    <p>기프티콘</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="img/main/quick03.png" alt="">
+                </div>
+                <div>
+                    <p>나우드림</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="img/main/quick04.png" alt="">
+                </div>
+                <div>
+                    <p>공지사항</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="img/main/quick05.png" alt="">
+                </div>
+                <div>
+                    <p>영업점안내</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="img/main/quick06.png" alt="">
+                </div>
+                <div>고객센터</div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="footerMenuWrap">
+        <div class="footerMenu">
+            <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">광고안내</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">청약철회</a></li>
+                <li><a href="#">입점문의</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">영상정보관리방침</a></li>
+                <li><a href="#">이메일 무단 수집 거부</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerbox">
+            <div>
+                <img src="img/main/ypbooks_logo_green.png" alt="">
+            </div>
+            <div>
+                <p>회사명 : (주)영풍문고 ㅣ대표이사 : 고경림 <br>
+                    소재지 : 경기도 안산시 상록구 사1동 1407-12번지 502호 <br>
+                    사업자 등록번호 : 123-45-67890 ㅣ 통신판매업 신고번호 : 2023-경기안산-00000 [ 사업자정보확인 ] <br>
+                    개인정보관리 책임자 : 조순제 ㅣ E-mail : customer@ypbooks.co.kr ㅣ 대량주문 : 02-519-2860 <br>
+                    COPYRIGHT © YOUNGPOONG BOOKSTORE INC. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+            <div>
+                <div>
+                    <p>출판사용 통합관리 시스템</p>
+                    <span><strong>SCM</strong> </span>
+                </div>
+                <div>
+                    <p>고객센터</p>
+                    <span><strong>1544-9020</strong> </span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
     
     
 
@@ -751,6 +860,54 @@
                 }
             });
 
+
+            // 정기인하
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "운명이 결정된다" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('8box');
+
+                
+
+                    $(".box13").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+                    $(".box14").append("<h3>" + msg.documents[0].title + "</h3><br>");
+                    $(".box14").append("<h6>"+ "</h6>");
+                    $(".box14").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                    $(".box14").append("<p>" + msg.documents[0].contents + "</p>"); 
+                
+            });
+
+            $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "밥" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+            })
+            .done(function (msg) {
+
+                
+                var divs = document.getElementsByClassName('box15_1');
+
+                for (var i = 0; i < divs.length; i++) {
+
+                    $(".box15").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                    $(".box15_1").eq(i).append("<h3>" + msg.documents[i].title + "</h3><br>");
+                    $(".box15_1").eq(i).append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> ");
+                    $(".box15_1").eq(i).append("<p>"+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>")
+                        
+
+                    var str = msg.documents[i].contents;
+                    var str2 = str.substring(0, 60);
+
+                }
+                
+            });
 
 
             $(function(){ 
