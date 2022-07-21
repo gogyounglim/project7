@@ -104,20 +104,32 @@
                                 <div class="2box">
 
                                 </div>
-                            </div>
-                            <div class="2boxwrap">
-                                <div class="2box">
-                                    
+                                <div class="2box_1">
+
                                 </div>
                             </div>
                             <div class="2boxwrap">
                                 <div class="2box">
                                     
                                 </div>
+                                <div class="2box_1">
+
+                                </div>
                             </div>
                             <div class="2boxwrap">
                                 <div class="2box">
                                     
+                                </div>
+                                <div class="2box_1">
+
+                                </div>
+                            </div>
+                            <div class="2boxwrap">
+                                <div class="2box">
+                                    
+                                </div>
+                                <div class="2box_1">
+
                                 </div>
                             </div>
                     </div>
@@ -127,20 +139,32 @@
                             <div class="2box">
                                 
                             </div>
-                        </div>
-                        <div class="2boxwrap">
-                            <div class="2box">
-                                
+                            <div class="2box_1">
+
                             </div>
                         </div>
                         <div class="2boxwrap">
                             <div class="2box">
                                 
                             </div>
+                            <div class="2box_1">
+
+                            </div>
                         </div>
                         <div class="2boxwrap">
                             <div class="2box">
                                 
+                            </div>
+                            <div class="2box_1">
+
+                            </div>
+                        </div>
+                        <div class="2boxwrap">
+                            <div class="2box">
+                                
+                            </div>
+                            <div class="2box_1">
+
                             </div>
                         </div>
                     </div>
@@ -392,12 +416,14 @@
                 </div>
             </div>
             <div class="contanier5_2flex2">
-                <div class="11box">
+        
+                    <div class="11box">
 
-                </div>
-                <div class="12box">
+                    </div>
+                    <div class="12box">
+    
+                    </div>
 
-                </div>
             </div>
             <div class="contanier5_2flex3">
                 <div class="11box">
@@ -406,6 +432,22 @@
                 <div class="12box">
 
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container6tit">
+        <div>
+            <p>정가인하</p>
+        </div>
+    </div>
+    <div id="container6wrap">
+        <div class="container6">
+            <div>
+
+            </div>
+            <div>
+
             </div>
         </div>
     </div>
@@ -454,9 +496,9 @@
                     for (var i = 0; i < divs.length; i++) {
 
                         $(".2box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
-                        $(".2box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
-                        $(".2box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
-                        $(".2box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+                        $(".2box_1").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
+                        $(".2box_1").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
+                        $(".2box_1").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
 
                         var str = msg.documents[i].contents;
                         var str2 = str.substring(0, 60);
@@ -655,12 +697,13 @@
                     $('.11box img').remove();
                     $('.12box h3').remove();
                     $('.12box br').remove();
+                    $('.12box p').remove();
 
 
                     $(".9box").append("<img src='" + msg.documents[i].thumbnail + "'/>");
                     $(".10box").append("<h3>" + msg.documents[i].title + "</h3><br>");
                     $(".10box").append("<h6>"+ "</h6>");
-                    $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                    $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
                     $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
                     
          
@@ -676,6 +719,10 @@
 
                         $(".11box").eq(a-1).append("<img src='" + msg.documents[arr1[b]].thumbnail + "'/>");
                         $(".12box").eq(a-1).append("<h3>" + msg.documents[arr1[b]].title + "</h3><br>");
+                        $(".12box").eq(a-1).append( "<p>(" + msg.documents[arr1[b]].authors[arr1[b]] +" | " + msg.documents[arr1[b]].publisher + ")" + "</p><br>");
+
+
+                        
 
                         
                         console.log(arr1[b]);

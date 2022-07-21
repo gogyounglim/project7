@@ -135,6 +135,9 @@ header {
 #headerMenu2 > ul li a {
   color: rgb(0, 53, 0);
 }
+#headerMenu2 > ul li:hover {
+  height: 120%;
+}
 
 #container1Wrap {
   width: 100%;
@@ -166,7 +169,6 @@ header {
 #container2Wrap .container2 {
   width: 960px;
   height: 1200px;
-  background-color: rgb(255, 255, 255);
   margin: 0 auto;
 }
 #container2Wrap .container2 > div:nth-child(1) {
@@ -241,7 +243,7 @@ header {
 
 .container2_1wrap {
   width: 100%;
-  height: 800px;
+  height: 850px;
   background-color: #E5F7EB;
 }
 
@@ -254,19 +256,30 @@ header {
 .container2_1flex1 > div {
   width: 25%;
 }
-.container2_1flex1 > div > div {
+.container2_1flex1 > div > div:nth-child(1) {
   width: 80%;
   margin: 0 auto;
+  height: 70%;
   text-align: center;
 }
-.container2_1flex1 > div > div > h5 {
+.container2_1flex1 > div > div:nth-child(1) > h5 {
   margin-top: 10px;
 }
-.container2_1flex1 > div > div > img {
+.container2_1flex1 > div > div:nth-child(1) > img {
   margin-top: 30px;
   width: 162px;
   height: 230px;
   box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.16), 4px 6px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
+}
+.container2_1flex1 > div > div:nth-child(1) img:hover {
+  box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.16), 10px 12px 12px rgba(0, 0, 0, 0.23);
+  border: 1px solid #3a804c;
+}
+.container2_1flex1 > div > div:nth-child(2) {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .name {
@@ -284,19 +297,30 @@ header {
 .container2_1flex2 > div {
   width: 25%;
 }
-.container2_1flex2 > div > div {
+.container2_1flex2 > div > div:nth-child(1) {
   width: 80%;
+  height: 70%;
   margin: 0 auto;
   text-align: center;
 }
-.container2_1flex2 > div > div > h5 {
+.container2_1flex2 > div > div:nth-child(1) > h5 {
   margin-top: 10px;
 }
-.container2_1flex2 > div > div > img {
+.container2_1flex2 > div > div:nth-child(1) > img {
   margin-top: 30px;
   width: 162px;
   height: 230px;
   box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.16), 4px 6px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
+}
+.container2_1flex2 > div > div:nth-child(1) img:hover {
+  box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.16), 6px 10px 10px rgba(0, 0, 0, 0.23);
+  border: 1px solid #3a804c;
+}
+.container2_1flex2 > div > div:nth-child(2) {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .container2_2wrap {
@@ -474,7 +498,7 @@ header {
   font-size: 18px;
   font-weight: bolder;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 70px;
   width: 960px;
 }
 #container3wrap .container3 {
@@ -497,6 +521,11 @@ header {
   width: 152px;
   height: 226px;
   margin-top: 23px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.3s;
+}
+#container3wrap .container3 > div > div > img:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .container4tit {
@@ -548,6 +577,14 @@ header {
   text-align: center;
   position: relative;
 }
+.container4flexboxWrap img {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.3s;
+}
+.container4flexboxWrap img:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border: 1px solid #3f9255;
+}
 .container4flexboxWrap > div {
   width: 80%;
   height: 100%;
@@ -556,7 +593,6 @@ header {
 .container4flexboxWrap > div > div {
   width: 100px;
   height: 150px;
-  background-color: black;
   float: left;
   margin: 10px;
 }
@@ -574,16 +610,19 @@ header {
   width: 100%;
   height: 500px;
   background-color: aqua;
+  padding: 10px;
 }
 
 .contanier5_1 {
   display: flex;
   flex-direction: row;
   width: 960px;
-  height: 217px;
+  height: 200px;
   background-color: wheat;
   margin: 0 auto;
-  transition: all 1s;
+  transition: all 0.3s;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 .contanier5_1 > div:nth-child(1) {
   width: 20%;
@@ -594,10 +633,14 @@ header {
   height: 100%;
 }
 
+.contanier5_1:hover {
+  box-shadow: 0 0 0 1px #3f9255;
+}
+
 .contanier5_1flex1 > div {
   width: 107px;
   height: 160px;
-  margin: 16px 0 0 20px;
+  margin: 16px 0 0 40px;
 }
 
 .contanier5_2 {
@@ -607,6 +650,13 @@ header {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+}
+.contanier5_2 h3 {
+  font-size: 14px;
+  margin-top: 35px;
+}
+.contanier5_2 p {
+  font-size: 13px;
 }
 .contanier5_2 > div {
   width: 33.33%;
@@ -625,6 +675,27 @@ header {
   margin-left: 20px;
 }
 .contanier5_2 > div > div:nth-child(2) {
+  width: 60%;
+  height: 100%;
+}
+
+.contanier5_1flex2 > div {
+  padding: 20px;
+}
+.contanier5_1flex2 > div p {
+  font-size: 13px;
+  color: #444;
+}
+.contanier5_1flex2 > div span {
+  color: rgb(194, 3, 3);
+  font-weight: bold;
+}
+
+.contanier5_2flex2 > div div:nth-child(1) {
+  width: 40%;
+  height: 100%;
+}
+.contanier5_2flex2 > div div:nth-child(1) {
   width: 60%;
   height: 100%;
 }
