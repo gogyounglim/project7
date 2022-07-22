@@ -108,10 +108,10 @@
             <div class="container2_1">
                 <div >
                     <ul class="menu2">
-                        <li>MD추천도서</li>
-                        <li>화제의 신간</li>
-                        <li>스테디셀러</li>
-                        <li>코믹</li>
+                        <li class="menu2li0">MD추천도서</li>
+                        <li class="menu2li1">화제의 신간</li>
+                        <li class="menu2li2">스테디셀러</li>
+                        <li class="menu2li3">코믹</li>
                     </ul>
                 </div>
                 <div class="container2_0wrap">
@@ -418,9 +418,15 @@
         <div class="contanier5_1">
             <div class="contanier5_1flex1">
                 <div class="9box"></div>
+                <div class="btnPrev3">
+                    <img src="img/main/prev-btn.png" alt="">
+                </div>
             </div>
             <div class="contanier5_1flex2">
                 <div class="10box"></div>
+                <div class="btnNext3">
+                    <img src="img/main/next-btn.png" alt="">
+                </div>
             </div>
         </div>
         <div class="contanier5_2">
@@ -883,6 +889,42 @@
                     $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
                     $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
                     
+                    $(".btnNext3").click(function(){
+                        if(i>=3){
+                        i=0
+                        y=2
+                        }else{
+                            i= i+1
+                            y= y+1
+                        }
+                        if(y>=3){
+                        y=0  
+                        }
+                        console.log(i);
+
+                        $('.9box img').remove();
+                        $('.10box h6').remove();
+                        $('.10box h3').remove();
+                        $('.10box p').remove();
+                        $('.10box br').remove();
+                        
+                        $('.11box img').remove();
+                        $('.12box h3').remove();
+                        $('.12box br').remove();
+                        $('.12box p').remove();
+
+
+                        $(".9box").append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                        $(".10box").append("<h3>" + msg.documents[i].title + "</h3><br>");
+                        $(".10box").append("<h6>"+ "</h6>");
+                        $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
+                        $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
+
+
+
+                    });
+
+
          
                     for(a=1; a<4; a++){            
                         let arr1 = [2,3,0,3,0,1,0,1,2,1,2,3]; //순서 맟추기위해 변수로 
@@ -897,19 +939,11 @@
                         $(".11box").eq(a-1).append("<img src='" + msg.documents[arr1[b]].thumbnail + "'/>");
                         $(".12box").eq(a-1).append("<h3>" + msg.documents[arr1[b]].title + "</h3><br>");
                         $(".12box").eq(a-1).append( "<p>(" + msg.documents[arr1[b]].authors[arr1[b]] +" | " + msg.documents[arr1[b]].publisher + ")" + "</p><br>");
-
-
-                        
-
                         
                         console.log(arr1[b]);
 
                         b=b+1
-
                     }
-
-
-
                 },3000)
                 
 
@@ -983,20 +1017,22 @@
                 $('.menu2 li').click(function(){
                     let indexNumber = $(this).index();
                     let con2= document.getElementsByClassName("container2_"+indexNumber+"wrap")
-                     
-                    console.log(con2);
+                    let liback = document.getElementsByClassName("menu2li" +indexNumber) 
+                    console.log(liback);
                     for(i=0; i<5;i++){
-                        let con2else =document.getElementsByClassName("container2_"+i+"wrap")
-
+                        let con2else =document.getElementsByClassName("container2_"+i+"wrap");
+                        let lielse = document.getElementsByClassName("menu2li" +i);
                         if(i==indexNumber){
                             $(con2).fadeIn(100);
+                            $(liback).css("background-color","#E5F7EB");
+
                         }else{
                             $(con2else).fadeOut(100);
+                            $(lielse).css("background-color","white");
+                            
                         }
                         
                     }
-
-
                 }); 
 
 
@@ -1005,32 +1041,48 @@
                     $('.menu2 li:nth-child(1)').css('background-color','#E5F7EB');
                     $('.menu2 li:nth-child(1)').css('border-bottom','0px');
                 }).mouseleave(function(){
-                    $('.menu2 li:nth-child(1)').css('background-color','white');
-                    $('.menu2 li:nth-child(1)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    if($(".container2_0wrap").css('display')=='none'){
+                        $('.menu2 li:nth-child(1)').css('background-color','white');
+                        $('.menu2 li:nth-child(1)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    }else{
+                        
+                    }
                 }); 
 
                 $('.menu2 li:nth-child(2)').mouseover(function(){
                     $('.menu2 li:nth-child(2)').css('background-color','#E5F7EB');
                     $('.menu2 li:nth-child(2)').css('border-bottom','0px');
                 }).mouseleave(function(){
-                    $('.menu2 li:nth-child(2)').css('background-color','white');
-                    $('.menu2 li:nth-child(2)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    if($(".container2_1wrap").css('display')=='none'){
+                        $('.menu2 li:nth-child(2)').css('background-color','white');
+                        $('.menu2 li:nth-child(2)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    }else{
+                        
+                    }
                 }); 
 
                 $('.menu2 li:nth-child(3)').mouseover(function(){
                     $('.menu2 li:nth-child(3)').css('background-color','#E5F7EB');
                     $('.menu2 li:nth-child(3)').css('border-bottom','0px');
                 }).mouseleave(function(){
-                    $('.menu2 li:nth-child(3)').css('background-color','white');
-                    $('.menu2 li:nth-child(3)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    if($(".container2_2wrap").css('display')=='none'){
+                        $('.menu2 li:nth-child(3)').css('background-color','white');
+                        $('.menu2 li:nth-child(3)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    }else{
+                        
+                    }
                 }); 
 
                 $('.menu2 li:nth-child(4)').mouseover(function(){
                     $('.menu2 li:nth-child(4)').css('background-color','#E5F7EB');
                     $('.menu2 li:nth-child(4)').css('border-bottom','0px');
                 }).mouseleave(function(){
-                    $('.menu2 li:nth-child(4)').css('background-color','white');
-                    $('.menu2 li:nth-child(4)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    if($(".container2_3wrap").css('display')=='none'){
+                        $('.menu2 li:nth-child(4)').css('background-color','white');
+                        $('.menu2 li:nth-child(4)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                    }else{
+                        
+                    }
                 }); 
                 
                 $('.container7 img').mouseover(function(){
@@ -1061,6 +1113,20 @@
                     $('.btnNext2').fadeOut(300);
                     $('.btnPrev2').fadeOut(300);
                 }); 
+
+                $('.contanier5_1').mouseover(function(){
+                    $('.btnNext3').css('display','block');
+                    $('.btnPrev3').css('display','block');
+                    
+                }).mouseleave(function(){
+                    // $('.btnNext2').css('display','none');
+                    // $('.btnPrev2').css('display','none');
+
+                    $('.btnNext3').fadeOut(300);
+                    $('.btnPrev3').fadeOut(300);
+                }); 
+
+                
             });
 
 
