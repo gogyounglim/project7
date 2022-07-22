@@ -71,10 +71,21 @@
 
     <div id="container1Wrap">
         <div class="container1">
-            <div><img src="img/main/main0716_book.jpg" alt=""></div>
+            <div>
+                <img src="img/main/main0716_book.jpg" alt="">
+                <div class="btnPrev">
+                    <img src="img/main/prev-btn.png" alt="">
+                </div>
+            </div>
             <div><img src="img/main/main0701_30th.jpg" alt=""></div>
-            <div><img src="img/main/main0531_hana1q.jpg" alt=""></div>
+            <div>
+                <img src="img/main/main0531_hana1q.jpg" alt="">
+                <div class="btnNext">
+                    <img src="img/main/next-btn.png" alt="">
+                </div>
+            </div>
         </div>
+
 
     </div>
 
@@ -86,6 +97,12 @@
             <div class="container2box">
                 <div class="box1"></div>
                 <div class="box2"></div>
+                <div class="btnPrev2">
+                    <img src="img/main/prev-btn.png" alt="">
+                </div>
+                <div class="btnNext2">
+                    <img src="img/main/next-btn.png" alt="">
+                </div>
             </div>
 
             <div class="container2_1">
@@ -97,7 +114,7 @@
                         <li>코믹</li>
                     </ul>
                 </div>
-                <div class="container2_1wrap">
+                <div class="container2_0wrap">
                     <div class="container2_1flex1">
                         
                             <div class="2boxwrap">
@@ -170,7 +187,7 @@
                     </div>
 
                 </div>
-                <div class="container2_2wrap">
+                <div class="container2_1wrap">
                     <div class="container2_2flex1">
                         
                             <div class="3boxwrap">
@@ -221,7 +238,7 @@
                     </div>
 
                 </div>
-                <div class="container2_3wrap">
+                <div class="container2_2wrap">
                     <div class="container2_3flex1">
                         
                             <div class="4boxwrap">
@@ -270,7 +287,7 @@
                     </div>
 
                 </div>
-                <div class="container2_4wrap">
+                <div class="container2_3wrap">
                     <div class="container2_4flex1">
                         
                             <div class="5boxwrap">
@@ -575,20 +592,68 @@
             headers: { Authorization: "KakaoAK 577f80ae52111b712428a925a329793c" }
         })
         .done(function (msg) {
+            x=1
+            setInterval(function(){
+                if(x>=4){
+                    x=0;
+                }
+
+                $('.box1 img').remove();
+                $('.box2 h3').remove();
+                $('.box2 h6').remove();
+                $('.box2 p').remove();
+                $('.box2 br').remove();
+                
+                $(".box1").append("<img src='" + msg.documents[x].thumbnail + "'/>");
+                $(".box2").append("<h3>" + msg.documents[x].title + "</h3><br>");
+                $(".box2").append("<h6>"+ "</h6>");
+                $(".box2").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[x].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                $(".box2").append("<p>" + msg.documents[x].contents	 + "</p>");
+                
+                x=x+1
+            },3000)
 
             $(".box1").append("<img src='" + msg.documents[0].thumbnail + "'/>");
-            
-            
             $(".box2").append("<h3>" + msg.documents[0].title + "</h3><br>");
             $(".box2").append("<h6>"+ "</h6>");
             $(".box2").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
             $(".box2").append("<p>" + msg.documents[0].contents	 + "</p>");
             
-
-            var str = msg.documents[0].contents;
-            var str2 = str.substring(0, 60);
-
-            // $(".box2").append("<p>" + str2 + "</p>");
+            $(".btnNext2").click(function(){
+                x=x+1
+                if(x>=4){
+                    x=0;
+                }
+                $('.box1 img').remove();
+                $('.box2 h3').remove();
+                $('.box2 h6').remove();
+                $('.box2 p').remove();
+                $('.box2 br').remove();
+                
+                $(".box1").append("<img src='" + msg.documents[x].thumbnail + "'/>");
+                $(".box2").append("<h3>" + msg.documents[x].title + "</h3><br>");
+                $(".box2").append("<h6>"+ "</h6>");
+                $(".box2").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[x].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                $(".box2").append("<p>" + msg.documents[x].contents	 + "</p>");
+            });
+            $(".btnPrev2").click(function(){
+                x=x-1
+                if(x<0){
+                    x=3
+                }
+                $('.box1 img').remove();
+                $('.box2 h3').remove();
+                $('.box2 h6').remove();
+                $('.box2 p').remove();
+                $('.box2 br').remove();
+                
+                $(".box1").append("<img src='" + msg.documents[x].thumbnail + "'/>");
+                $(".box2").append("<h3>" + msg.documents[x].title + "</h3><br>");
+                $(".box2").append("<h6>"+ "</h6>");
+                $(".box2").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[x].sale_price +"원"+ "</span> "+ "(" + msg.documents[0].authors[0] +" | " + msg.documents[0].publisher + ")" + "</p><br>");
+                $(".box2").append("<p>" + msg.documents[x].contents	 + "</p>");
+            });
+            
 
         });
 
@@ -787,6 +852,7 @@
                 let b = 0
                     
                 setInterval(function(){
+                
                     if(i>=3){
                         i=0
                         y=2
@@ -913,37 +979,58 @@
 
 
             $(function(){ 
-                $('.menu2 li:nth-child(2)').click(function(){
-                    $(".container2_1wrap").fadeOut(100);
-                    $(".container2_2wrap").fadeIn(100);
-                    $(".container2_3wrap").fadeOut(100);
-                    $(".container2_4wrap").fadeOut(100);
-                })
-                $('.menu2 li:nth-child(1)').click(function(){
-                    $(".container2_1wrap").fadeIn(100);
-                    $(".container2_2wrap").fadeOut(100);
-                    $(".container2_3wrap").fadeOut(100);
-                    $(".container2_4wrap").fadeOut(100);
-                })
-                $('.menu2 li:nth-child(3)').click(function(){
-                    $(".container2_1wrap").fadeOut(100);
-                    $(".container2_2wrap").fadeOut(100);
-                    $(".container2_3wrap").fadeIn(100);
-                    $(".container2_4wrap").fadeOut(100);
-                })
-                $('.menu2 li:nth-child(4)').click(function(){
-                    $(".container2_1wrap").fadeOut(100);
-                    $(".container2_2wrap").fadeOut(100);
-                    $(".container2_3wrap").fadeOut(100);
-                    $(".container2_4wrap").fadeIn(100);
-                })
+                
+                $('.menu2 li').click(function(){
+                    let indexNumber = $(this).index();
+                    let con2= document.getElementsByClassName("container2_"+indexNumber+"wrap")
+                     
+                    console.log(con2);
+                    for(i=0; i<5;i++){
+                        let con2else =document.getElementsByClassName("container2_"+i+"wrap")
+
+                        if(i==indexNumber){
+                            $(con2).fadeIn(100);
+                        }else{
+                            $(con2else).fadeOut(100);
+                        }
+                        
+                    }
+
+
+                }); 
+
+
+                
+                $('.menu2 li:nth-child(1)').mouseover(function(){
+                    $('.menu2 li:nth-child(1)').css('background-color','#E5F7EB');
+                    $('.menu2 li:nth-child(1)').css('border-bottom','0px');
+                }).mouseleave(function(){
+                    $('.menu2 li:nth-child(1)').css('background-color','white');
+                    $('.menu2 li:nth-child(1)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                }); 
 
                 $('.menu2 li:nth-child(2)').mouseover(function(){
                     $('.menu2 li:nth-child(2)').css('background-color','#E5F7EB');
                     $('.menu2 li:nth-child(2)').css('border-bottom','0px');
                 }).mouseleave(function(){
                     $('.menu2 li:nth-child(2)').css('background-color','white');
-                    $('.menu2 li:nth-child(2)').css('border-bottom','1px solid #999');
+                    $('.menu2 li:nth-child(2)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                }); 
+
+                $('.menu2 li:nth-child(3)').mouseover(function(){
+                    $('.menu2 li:nth-child(3)').css('background-color','#E5F7EB');
+                    $('.menu2 li:nth-child(3)').css('border-bottom','0px');
+                }).mouseleave(function(){
+                    $('.menu2 li:nth-child(3)').css('background-color','white');
+                    $('.menu2 li:nth-child(3)').css('border-bottom','1px solid rgb(212, 212, 212)');
+                }); 
+
+                $('.menu2 li:nth-child(4)').mouseover(function(){
+                    $('.menu2 li:nth-child(4)').css('background-color','#E5F7EB');
+                    $('.menu2 li:nth-child(4)').css('border-bottom','0px');
+                }).mouseleave(function(){
+                    $('.menu2 li:nth-child(4)').css('background-color','white');
+                    $('.menu2 li:nth-child(4)').css('border-bottom','1px solid rgb(212, 212, 212)');
                 }); 
                 
                 $('.container7 img').mouseover(function(){
@@ -952,7 +1039,35 @@
                 }).mouseleave(function(){
                     $('.container7 p').css('text-decoration','none');
                 }); 
+
+
+                $('.container1').mouseover(function(){
+                    $('.btnNext').css('display','block');
+                    $('.btnPrev').css('display','block');
+                    
+                }).mouseleave(function(){
+                    $('.btnNext').css('display','none');
+                    $('.btnPrev').css('display','none');
+                }); 
+               
+                $('.container2box').mouseover(function(){
+                    $('.btnNext2').css('display','block');
+                    $('.btnPrev2').css('display','block');
+                    
+                }).mouseleave(function(){
+                    // $('.btnNext2').css('display','none');
+                    // $('.btnPrev2').css('display','none');
+
+                    $('.btnNext2').fadeOut(300);
+                    $('.btnPrev2').fadeOut(300);
+                }); 
             });
+
+
+
+
+
+            
 
     </script>
     <script>
