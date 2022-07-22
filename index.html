@@ -512,7 +512,9 @@
                 <div>
                     <img src="img/main/quick06.png" alt="">
                 </div>
-                <div>고객센터</div>
+                <div>
+                    <p>고객센터</p>
+                </div>
             </div>
         </div>
         
@@ -944,6 +946,12 @@
                     $('.menu2 li:nth-child(2)').css('border-bottom','1px solid #999');
                 }); 
                 
+                $('.container7 img').mouseover(function(){
+                    $('.container7 p').css('text-decoration','underline');
+                    
+                }).mouseleave(function(){
+                    $('.container7 p').css('text-decoration','none');
+                }); 
             });
 
     </script>
