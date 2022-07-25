@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/sub1sass.css">
+</head>
+<body>
+    <div id="headertop">
+        <div>
+            <img src="img/main/topb_l_220716.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/main/topb_l_hana1q.jpg" alt="">
+        </div>
+    </div>
+    <header>
+
+        <div id="headermain">
+            <div class="headerMenu">
+                <ul>
+                    <li><a href="">마이페이지</a> </li>
+                    <li><a href="">|로그인</a> </li>
+                    <li><a href="">|회원인증/가입</a> </li>
+                    <li><a href="">|장바구니</a> </li>
+                    <li><a href="">|주문/배송조회</a> </li>
+                    <li><a href="">|고객센터</a> </li>
+                </ul>
+            </div>
+            <div class="header1">
+                <div class="header1_1">
+                    <div><img src="img/main/yp_logo.png" alt=""></div>
+                    <div>
+                        <div class="serch">
+                            <select name="ser" id="selcet">
+                                <option value="통합검색">통합검색</option>
+                                <option value="통합검색">국내도서</option>
+                                <option value="통합검색">서양도서</option>
+                                <option value="통합검색">일본도서</option>
+                                <option value="통합검색">E-Book</option>
+                                <option value="통합검색">독자서평</option>
+                                <option value="통합검색">도서명</option>
+                                <option value="통합검색">저자명</option>
+                            </select>
+                                <input type="text" class="mainserch">
+                                <div class="btnserch">
+                                    <img src="img/main/top_search.gif" alt="">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="headerSmallimg">
+                        <div class="small1"><img src="img/main/top_small_70.png" alt=""></div>
+                        <div class="small2"><img src="img/main/top_small_71.png" alt=""></div>
+                        <div class="small3"><img src="img/main/top_small_72.png" alt=""></div>
+                        <div class="small4"><img src="img/main/top_small_74.png" alt=""></div>
+                        <div class="imgNumber">
+                            <span id="imgNumberSelct">1</span>
+                            <span>/</span>
+                            <span>4</span>
+                        </div>
+                        <div class="prev1">&lt;</div>
+                        <div class="next1">&gt;</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="headerMenu2">
+            <ul>
+                <li><a href="#">베스트도서</a></li>
+                <li><a href="#">신간도서</a></li>
+                <li><a href="#">국내도서</a></li>
+                <li><a href="#">외국도서</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">기획/테마</a></li>
+                <li><a href="#">문화행사</a></li>
+                <li><a href="#">기프티콘</a></li>
+                <li><a href="#">회원혜택</a></li>
+                <li><a href="#">출석체크</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="container1Wrap">
+        <div class="fieldSelect">
+            
+        </div>
+        <div class="container1">
+            <div class="container1Flex1">
+                <div class="container1Flex1Box1"></div>
+                <div><a href="">미리보기</a></div>
+                <div><a href="">영업점 재고 및 위치 확인</a></div>
+            </div>
+            <div class="container1Flex2">
+                <div>
+                    <div>
+                        <p>소득공제</p>
+                    </div>
+                    <div class="container1Flex2Box1">
+
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="container1Flex3">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "다이어트" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+        })
+        .done(function (msg) {
+            
+                $(".container1Flex1Box1").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+                $(".container1Flex2Box1").append("<h3>" + msg.documents[0].title + "</h3><br>");
+                $(".container1Flex2Box1").append( "<span>저자 : </span>"+ msg.documents[0].authors[0] +" | " +"<span>출판사 : </span>" + msg.documents[0].publisher + " |");
+                // $(".box14").append("<h6>"+ "</h6>");
+                // $(".box14").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ ;
+                // $(".box14").append("<p>" + msg.documents[0].contents + "</p>"); 
+                
+        });
+    </script>
+    
+</body>
+</html>
