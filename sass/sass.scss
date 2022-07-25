@@ -188,6 +188,7 @@ header{
     width: 1200px;
     height: 48px;
     margin: 0 auto;
+    cursor: pointer;
     
     
     
@@ -374,11 +375,15 @@ header{
         width: 100%;
         
     }
+    >div ul{
+        height:46px ;
+        width: 100%;
+    }
     >div ul li{
         float: left;
         
         text-align: center;
-        width: 238px;
+        width: 238.75px;
         height: 46px;
         line-height: 40px;
         font-weight: bolder;
@@ -391,7 +396,7 @@ header{
     >div ul li:nth-child(1){
         background-color: #E5F7EB;
         border-bottom: 0px;
-        border-left: 0px;
+        
         border-right: 0px;
     }
     >div ul li:nth-child(2){

@@ -53,12 +53,12 @@
                         </div>
                     </div>
                     <div class="headerSmallimg">
-                        <div><img src="img/main/top_small_70.png" alt=""></div>
-                        <div><img src="img/main/top_small_71.png" alt=""></div>
-                        <div><img src="img/main/top_small_72.png" alt=""></div>
-                        <div><img src="img/main/top_small_74.png" alt=""></div>
+                        <div class="small1"><img src="img/main/top_small_70.png" alt=""></div>
+                        <div class="small2"><img src="img/main/top_small_71.png" alt=""></div>
+                        <div class="small3"><img src="img/main/top_small_72.png" alt=""></div>
+                        <div class="small4"><img src="img/main/top_small_74.png" alt=""></div>
                         <div class="imgNumber">
-                            <span>1</span>
+                            <span id="imgNumberSelct">1</span>
                             <span>/</span>
                             <span>4</span>
                         </div>
@@ -874,7 +874,7 @@
                 let b = 0
                     
                 setInterval(function(){
-                
+                    
                     if(i>=3){
                         i=0
                         y=2
@@ -905,7 +905,28 @@
                     $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
                     $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
                     
-                    $(".btnNext3").click(function(){
+         
+                    for(a=1; a<4; a++){            
+                        let arr1 = [2,3,0,3,0,1,0,1,2,1,2,3]; //순서 맟추기위해 변수로 
+                        let arr2 = [3,0,1];
+                        let arr3 = [0,1,2];
+                        let [num1,num2,num3]=arr1;
+                        
+                        if(b==12){
+                            b=0;
+                        };
+
+                        $(".11box").eq(a-1).append("<img src='" + msg.documents[arr1[b]].thumbnail + "'/>");
+                        $(".12box").eq(a-1).append("<h3>" + msg.documents[arr1[b]].title + "</h3><br>");
+                        $(".12box").eq(a-1).append( "<p>(" + msg.documents[arr1[b]].authors[arr1[b]] +" | " + msg.documents[arr1[b]].publisher + ")" + "</p><br>");
+                        
+                        console.log(arr1[b]);
+
+                        b=b+1
+                    }
+                },3000)
+
+                $(".btnNext3").click(function(){
                         if(i>=3){
                         i=0
                         y=2
@@ -936,13 +957,7 @@
                         $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
                         $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
 
-
-
-                    });
-
-
-         
-                    for(a=1; a<4; a++){            
+                        for(a=1; a<4; a++){            
                         let arr1 = [2,3,0,3,0,1,0,1,2,1,2,3]; //순서 맟추기위해 변수로 
                         let arr2 = [3,0,1];
                         let arr3 = [0,1,2];
@@ -960,7 +975,67 @@
 
                         b=b+1
                     }
-                },3000)
+
+
+                });
+
+                $(".btnPrev3").click(function(){
+
+                        i= i-1
+                        if(i<0){
+                        i=3
+                        }else{
+                            
+                        }
+                        console.log(i);
+
+                        $('.9box img').remove();
+                        $('.10box h6').remove();
+                        $('.10box h3').remove();
+                        $('.10box p').remove();
+                        $('.10box br').remove();
+                        
+                        $('.11box img').remove();
+                        $('.12box h3').remove();
+                        $('.12box br').remove();
+                        $('.12box p').remove();
+
+
+                        $(".9box").append("<img src='" + msg.documents[i].thumbnail + "'/>");
+                        $(".10box").append("<h3>" + msg.documents[i].title + "</h3><br>");
+                        $(".10box").append("<h6>"+ "</h6>");
+                        $(".10box").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> "+ "(" + msg.documents[i].authors[i] +" | " + msg.documents[i].publisher + ")" + "</p><br>");
+                        $(".10box").append("<p>" + msg.documents[i].contents + "</p>");
+
+                        for(a=1; a<4; a++){            
+                        let arr1 = [2,3,0,3,0,1,0,1,2,1,2,3]; //순서 맟추기위해 변수로 
+                        let arr2 = [3,0,1];
+                        let arr3 = [0,1,2];
+                        let [num1,num2,num3]=arr1;
+                        
+                        if(b==12){
+                            b=0;
+                        };
+
+                        $(".11box").eq(a-1).append("<img src='" + msg.documents[arr1[b]].thumbnail + "'/>");
+                        $(".12box").eq(a-1).append("<h3>" + msg.documents[arr1[b]].title + "</h3><br>");
+                        $(".12box").eq(a-1).append( "<p>(" + msg.documents[arr1[b]].authors[arr1[b]] +" | " + msg.documents[arr1[b]].publisher + ")" + "</p><br>");
+                        
+                        console.log(arr1[b]);
+
+                        b=b+1
+
+                    }
+
+
+                });
+
+
+
+
+
+
+
                 
 
                 var divs = document.getElementsByClassName('9box');
@@ -1008,7 +1083,6 @@
             headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
             })
             .done(function (msg) {
-
                 
                 var divs = document.getElementsByClassName('box15_1');
 
@@ -1050,6 +1124,87 @@
                         
                     }
                 }); 
+
+
+                imgnumber = 1
+                setInterval(function(){
+                    imgnumber = imgnumber+1
+                    if(imgnumber>=5){
+                        imgnumber= 1
+                    }else{
+
+                    }
+                    $("small1").fadeOut()
+                    let imgnumberText = document.getElementsByClassName("imgNumberSelct");
+
+
+
+                    
+                    
+                    for(i=1; i<5;i++){
+                        let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
+                        let smallimgNone = document.getElementsByClassName("small"+i);
+                        
+                        if(i==imgnumber){
+                            $(smallimgNumber).css("display","block");
+                        }else{
+                            $(smallimgNone).css("display","none");
+                        }
+                    }
+                    document.getElementById("imgNumberSelct").innerHTML = imgnumber;
+                    
+                    
+                    
+                    
+                },3000)
+
+                       
+                $(".next1").click(function(){
+                    imgnumber= imgnumber+1;
+                        if(imgnumber>=5){
+                            imgnumber = 1;
+                        }
+
+                        
+                        for(i=1; i<5;i++){
+                        let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
+                        let smallimgNone = document.getElementsByClassName("small"+i);
+                        
+                        if(i==imgnumber){
+                            $(smallimgNumber).css("display","block");
+                        }else{
+                            $(smallimgNone).css("display","none");
+                        }
+                    }
+                    console.log(imgnumber)
+                    document.getElementById("imgNumberSelct").innerHTML = imgnumber;
+                    
+                    
+                });
+
+                $(".prev1").click(function(){
+                    imgnumber= imgnumber-1;
+                        if(imgnumber==0){
+                            imgnumber = 4;
+                        }
+                        
+                        for(i=1; i<5;i++){
+                        let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
+                        let smallimgNone = document.getElementsByClassName("small"+i);
+                        
+                        if(i==imgnumber){
+                            $(smallimgNumber).css("display","block");
+                        }else{
+                            $(smallimgNone).css("display","none");
+                        }
+                    }
+                    console.log(imgnumber)
+                    document.getElementById("imgNumberSelct").innerHTML = imgnumber;
+                    
+                    
+                });
+
+
 
 
                 

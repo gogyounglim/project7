@@ -181,6 +181,7 @@ header {
   width: 1200px;
   height: 48px;
   margin: 0 auto;
+  cursor: pointer;
 }
 #headerMenu2 > ul {
   float: left;
@@ -345,10 +346,14 @@ header {
   position: relative;
   width: 100%;
 }
+.container2_1 > div ul {
+  height: 46px;
+  width: 100%;
+}
 .container2_1 > div ul li {
   float: left;
   text-align: center;
-  width: 238px;
+  width: 238.75px;
   height: 46px;
   line-height: 40px;
   font-weight: bolder;
@@ -359,7 +364,6 @@ header {
 .container2_1 > div ul li:nth-child(1) {
   background-color: #E5F7EB;
   border-bottom: 0px;
-  border-left: 0px;
   border-right: 0px;
 }
 .container2_1 > div ul li:nth-child(2) {
