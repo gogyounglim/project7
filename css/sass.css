@@ -32,6 +32,31 @@ header {
   background-color: white;
 }
 
+#headertop {
+  height: 60px;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+#headertop img {
+  width: 50%;
+  height: 100%;
+}
+#headertop > div:nth-child(1) {
+  width: 50%;
+  height: 100%;
+  background: #f1f0e5;
+}
+#headertop > div:nth-child(1) > img {
+  float: right;
+}
+#headertop > div:nth-child(2) {
+  width: 50%;
+  height: 100%;
+  background: #5c17b2;
+}
+
 #headermain {
   width: 100%;
   height: 80%;
@@ -98,8 +123,17 @@ header {
   width: 15%;
   background-color: rgb(0, 53, 0);
   float: right;
+  cursor: pointer;
+}
+.serch .btnserch img {
+  width: 40%;
+  height: 50%;
+  margin: 9px 0 0 18px;
 }
 
+.headerSmallimg {
+  position: relative;
+}
 .headerSmallimg > div:nth-child(2) {
   display: none;
 }
@@ -108,6 +142,39 @@ header {
 }
 .headerSmallimg > div:nth-child(4) {
   display: none;
+}
+.headerSmallimg .prev1 {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  line-height: 13px;
+  color: #999;
+  cursor: pointer;
+}
+.headerSmallimg .next1 {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  position: absolute;
+  top: 90px;
+  right: 0px;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  line-height: 13px;
+  color: #999;
+  cursor: pointer;
+}
+.headerSmallimg .imgNumber {
+  font-size: 13px;
+  color: #777;
+  position: absolute;
+  top: 90px;
+  right: 60px;
 }
 
 #headerMenu2 {
