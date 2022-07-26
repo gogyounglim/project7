@@ -170,11 +170,11 @@ $.ajax({
 
             $(".5box").eq(i).append("<img src='" + msg.documents[i].thumbnail + "'/>");
             $(".5box").eq(i).append("<h5>" + msg.documents[i].title + "</h5>");
-            $(".5box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[0].publisher +  "</p>");
-            $(".5box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> ")
+            $(".5box").eq(i).append( "<p class='name'>"+ msg.documents[i].authors +" | " + msg.documents[i].publisher +  "</p>");
+            $(".5box").eq(i).append("<p>" +"<span>"+" "+ msg.documents[i].sale_price +"원"+ "</span> ")
 
-            var str = msg.documents[i].contents;
-            var str2 = str.substring(0, 60);
+            // var str = msg.documents[i].contents;
+            // var str2 = str.substring(0, 60);
 
         }
         
