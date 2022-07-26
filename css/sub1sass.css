@@ -219,6 +219,7 @@ header {
   height: 70px;
   background-color: #888;
   margin: 0 auto;
+  line-height: 50PX;
 }
 
 .container1 {
@@ -239,8 +240,8 @@ header {
 }
 .container1 > div:nth-child(3) {
   width: 25%;
-  height: 100%;
-  background-color: #999;
+  height: 380px;
+  background: #f2f2f2;
 }
 
 .container1Flex1 {
@@ -274,7 +275,12 @@ header {
 }
 .container1Flex2 > div:nth-child(1) {
   width: 100%;
-  height: 20%;
+  height: 25%;
+  border-bottom: 1px solid #999;
+}
+.container1Flex2 > div:nth-child(1) p {
+  font-size: 14px;
+  color: #444;
 }
 .container1Flex2 > div:nth-child(1) > div:nth-child(1) {
   width: 60px;
@@ -288,11 +294,123 @@ header {
 }
 .container1Flex2 > div:nth-child(2) {
   width: 100%;
-  height: 60%;
-  background-color: aqua;
+  height: 40%;
+  border-bottom: 1px solid #999;
 }
 .container1Flex2 > div:nth-child(3) {
   width: 100%;
   height: 20%;
   background-color: #5c17b2;
+}
+
+.container1Flex2Box2 {
+  line-height: 30px;
+}
+.container1Flex2Box2 p {
+  font-size: 15px;
+  color: #7d7d7d;
+}
+.container1Flex2Box2 .sale {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+.container1Flex2Box2 .salePrice {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff0909;
+}
+.container1Flex2Box2 .slaeper {
+  color: #e60012;
+  font-weight: bold;
+}
+.container1Flex2Box2 .juckripPrice {
+  color: #666;
+  font-weight: bold;
+}
+.container1Flex2Box2 .schedule {
+  color: #da4445;
+}
+.container1Flex2Box2 .guide1 {
+  width: 145px;
+  height: 23px;
+  font-size: 13px;
+  float: left;
+  margin-left: 100px;
+  border: 1px solid #cdcdcd;
+  text-align: center;
+  line-height: 24px;
+  color: #666;
+  cursor: pointer;
+}
+.container1Flex2Box2 .guide2 {
+  width: 70px;
+  height: 23px;
+  font-size: 13px;
+  float: right;
+  border: 1px solid #cdcdcd;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 180px;
+  color: #666;
+  cursor: pointer;
+}
+.container1Flex2Box2 .Coupon {
+  width: 76px;
+  height: 26px;
+  float: right;
+  font-size: 14px;
+  background: #da4445;
+  color: white;
+  text-align: center;
+  line-height: 25px;
+  margin-right: 290px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+.container1Flex2Box2 .couponText {
+  font-size: 15px;
+  color: #777;
+}
+
+.container1Flex3Box1 {
+  width: 170px;
+  height: 44px;
+  margin: 0 auto;
+  border-bottom: 1px solid #999;
+  line-height: 40px;
+  margin-top: 30px;
+}
+.container1Flex3Box1 .orderCount {
+  width: 86px;
+  height: 26px;
+  border: 1px solid #999;
+  text-align: right;
+}
+
+.container1Flex3Box2 > div {
+  width: 170px;
+  height: 52px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 48px;
+  margin-top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container1Flex3Box2 > div:nth-child(1) {
+  background: #da4444;
+  color: white;
+}
+.container1Flex3Box2 > div:nth-child(2) {
+  background: #266444;
+  color: white;
+}
+.container1Flex3Box2 > div:nth-child(3) {
+  background: #39a875;
+  color: white;
+}
+.container1Flex3Box2 > div:nth-child(4) {
+  background-color: white;
+  color: #333;
+  border: 1px solid #999;
 }

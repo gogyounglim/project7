@@ -85,6 +85,20 @@
     </header>
     <div id="container1Wrap">
         <div class="fieldSelect">
+            <span>
+                <a href="#">HOME  &gt; </a>
+            </span>
+            <span>
+                <select name="type" id="type">
+                    <option value="1" selected>국내도서</option>
+                    <option value="2">서양도서</option>
+                    <option value="3">일본도서</option>
+                    <option value="4">E-Book</option>
+                </select>
+            </span>
+            <span>
+                <select name="" id=""></select>
+            </span>
             
         </div>
         <div class="container1">
@@ -102,16 +116,30 @@
 
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <div class="container1Flex2Box2">
+
+                    </div>
+                </div>
                 <div></div>
             </div>
             <div class="container1Flex3">
-
+                <div class="container1Flex3Box1">
+                    <p>주문수량 <input class="orderCount" type="text" maxlength="3" value="1"></p>
+                </div>
+                <div class="container1Flex3Box2">
+                    <div>장바구니 담기</div>
+                    <div>바로구매</div>
+                    <div>나우드림</div>
+                    <div>내서재 담기</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+
+        // 1
         $.ajax({
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
@@ -119,14 +147,40 @@
             headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
         })
         .done(function (msg) {
-            
+                bookDatetime = msg.documents[0].datetime;
+                isbn1 = msg.documents[0].isbn
+                console.log(isbn1.substring(0,10))
+                
                 $(".container1Flex1Box1").append("<img src='" + msg.documents[0].thumbnail + "'/>");
                 $(".container1Flex2Box1").append("<h3>" + msg.documents[0].title + "</h3><br>");
-                $(".container1Flex2Box1").append( "<span>저자 : </span>"+ msg.documents[0].authors[0] +" | " +"<span>출판사 : </span>" + msg.documents[0].publisher + " |");
-                // $(".box14").append("<h6>"+ "</h6>");
+                $(".container1Flex2Box1").append( "<p><span>저자 : </span>" +"<a>"+ msg.documents[0].authors[0] +"</a>"+ " | " +"<span>출판사 : </span>" + msg.documents[0].publisher + " |</p>");
+                $(".container1Flex2Box1").append("<p>"+ bookDatetime.substring(0,10)+" | "+"314P" +" | " + "ISBN-13 : "+ isbn1.substring(0,10)  +"</p>" );
                 // $(".box14").append("<p>" +"인터넷 판매가:"+"<span>"+" "+ msg.documents[0].sale_price +"원"+ "</span> "+ ;
                 // $(".box14").append("<p>" + msg.documents[0].contents + "</p>"); 
                 
+        });
+
+        //2
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: "다이어트" },
+            headers: { Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161" }
+        })
+        .done(function (msg) {
+            saleprice = Number(msg.documents[0].sale_price)
+            juckrip = saleprice*5/100;
+            console.log(juckrip)
+
+            $(".container1Flex2Box2").append("<p>" +"정가 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "+"<span class='sale'>"+" "+ msg.documents[0].price +"원"+ "</span><br>");
+            $(".container1Flex2Box2").append("<p>" +"판매가 &nbsp;&nbsp;&nbsp;&nbsp; "+"<span class='salePrice'>"+" "+ msg.documents[0].sale_price +"원 "+ "</span>" + "<span class='slaeper'> (10% 할인) </sapn> </p>");
+            $(".container1Flex2Box2").append("<p>" + "적립금 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class='juckripPrice'> " + juckrip +"</span> (5%)" +"</p>");
+            $(".container1Flex2Box2").append("<p>" + " 배송일정 &nbsp;&nbsp; "  + "<span class='schedule'> 2일 이내 출고예정 (주말/공휴일 제외) </span>"+ "</div>");
+            // $(".container1Flex2Box2").append("<div class='guide>주문 수량 변경시 안내</div>");
+            $(".container1Flex2Box2").append("<div class='guide1'>주문 수량 변경시 안내</div>");
+            $(".container1Flex2Box2").append("<div class='guide2'>배송 안내</div></br>");
+            $(".container1Flex2Box2").append("<span class='CouponWrap'>" + "<span class='couponText' >쿠폰 및 결제혜택<span>" +"<div class='Coupon'>확인하기</div>" + "</span>");
+            
         });
     </script>
     
