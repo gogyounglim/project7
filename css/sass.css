@@ -74,6 +74,9 @@ header {
   float: left;
   font-size: 12px;
 }
+.headerMenu li:hover {
+  text-decoration: underline;
+}
 
 .header1 {
   width: 100%;

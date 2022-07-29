@@ -640,3 +640,13 @@ $.ajax({
 
         
     });
+
+    $('.3boxwrap').click(function(){
+        window.location.href='sub1.html'
+    });
+    $('.4boxwrap').click(function(){
+        window.location.href='sub1.html'
+    });
+    $('.5boxwrap').click(function(){
+        window.location.href='sub1.html'
+    });
