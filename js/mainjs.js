@@ -423,12 +423,6 @@ $.ajax({
 
 
 
-
-
-
-
-        
-
         var divs = document.getElementsByClassName('9box');
             $(".9box").append("<img src='" + msg.documents[0].thumbnail + "'/>");
             $(".10box").append("<h3>" + msg.documents[0].title + "</h3><br>");
@@ -496,7 +490,7 @@ $.ajax({
     $(function(){ 
 
         
-        $(".header1_1>div img").click(function(){
+        $(".header1_1> div:nth-child(1) img").click(function(){
             location.href="index.html"
         })
 
@@ -573,8 +567,38 @@ $.ajax({
             }
         }); 
         
-        $('.container7 img').mouseover(function(){
-            $('.container7 p').css('text-decoration','underline');
+        $('.container7box1').mouseover(function(){
+            $('.container7box1 p').css('text-decoration','underline');
+            
+        }).mouseleave(function(){
+            $('.container7 p').css('text-decoration','none');
+        }); 
+        $('.container7box2').mouseover(function(){
+            $('.container7box2 p').css('text-decoration','underline');
+            
+        }).mouseleave(function(){
+            $('.container7 p').css('text-decoration','none');
+        }); 
+        $('.container7box3').mouseover(function(){
+            $('.container7box3 p').css('text-decoration','underline');
+            
+        }).mouseleave(function(){
+            $('.container7 p').css('text-decoration','none');
+        }); 
+        $('.container7box4').mouseover(function(){
+            $('.container7box4 p').css('text-decoration','underline');
+            
+        }).mouseleave(function(){
+            $('.container7 p').css('text-decoration','none');
+        }); 
+        $('.container7box5').mouseover(function(){
+            $('.container7box5 p').css('text-decoration','underline');
+            
+        }).mouseleave(function(){
+            $('.container7 p').css('text-decoration','none');
+        }); 
+        $('.container7box6').mouseover(function(){
+            $('.container7box6 p').css('text-decoration','underline');
             
         }).mouseleave(function(){
             $('.container7 p').css('text-decoration','none');
