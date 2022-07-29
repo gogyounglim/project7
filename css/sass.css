@@ -93,6 +93,7 @@ header {
 }
 .header1_1 > div:nth-child(1) > img {
   margin-top: 13px;
+  cursor: pointer;
 }
 .header1_1 > div:nth-child(2) {
   width: 50%;
@@ -1097,6 +1098,9 @@ header {
   color: #444;
   cursor: pointer;
 }
+#footerMenuWrap ul li a:hover {
+  text-decoration: underline;
+}
 
 footer {
   width: 100%;
@@ -1185,4 +1189,12 @@ footer .footerbox > div:nth-child(3) > div:nth-child(2) > p {
   padding: 0px;
   display: none;
   cursor: pointer;
+}
+
+#btnTop {
+  position: fixed;
+  right: 2%;
+  bottom: 50px;
+  display: none;
+  z-index: 999;
 }

@@ -494,6 +494,12 @@ $.ajax({
 
 
     $(function(){ 
+
+        
+        $(".header1_1>div img").click(function(){
+            location.href="index.html"
+        })
+
         
         $('.menu2 li').click(function(){
             let indexNumber = $(this).index();
@@ -517,37 +523,7 @@ $.ajax({
         }); 
 
 
-        imgnumber = 1
-        setInterval(function(){
-            imgnumber = imgnumber+1
-            if(imgnumber>=5){
-                imgnumber= 1
-            }else{
 
-            }
-            $("small1").fadeOut()
-            let imgnumberText = document.getElementsByClassName("imgNumberSelct");
-
-
-
-            
-            
-            for(i=1; i<5;i++){
-                let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
-                let smallimgNone = document.getElementsByClassName("small"+i);
-                
-                if(i==imgnumber){
-                    $(smallimgNumber).css("display","block");
-                }else{
-                    $(smallimgNone).css("display","none");
-                }
-            }
-            document.getElementById("imgNumberSelct").innerHTML = imgnumber;
-            
-            
-            
-            
-        },3000)
 
         $('.menu2 li:nth-child(1)').mouseover(function(){
             $('.menu2 li:nth-child(1)').css('background-color','#E5F7EB');

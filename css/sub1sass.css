@@ -64,6 +64,9 @@ header {
   float: left;
   font-size: 12px;
 }
+.headerMenu a:hover {
+  text-decoration: underline;
+}
 
 .header1 {
   width: 100%;
@@ -84,6 +87,7 @@ header {
 }
 .header1_1 > div:nth-child(1) > img {
   margin-top: 13px;
+  cursor: pointer;
 }
 .header1_1 > div:nth-child(2) {
   width: 50%;
@@ -246,6 +250,7 @@ header {
   width: 25%;
   height: 380px;
   background: #f2f2f2;
+  border: 1px solid #d2d2d2;
 }
 
 .container1Flex1 {
@@ -352,6 +357,7 @@ header {
 }
 .container1Flex2Box2 .schedule {
   color: #da4445;
+  font-size: 13px;
 }
 .container1Flex2Box2 .guide1 {
   width: 145px;
@@ -399,14 +405,17 @@ header {
   width: 170px;
   height: 44px;
   margin: 0 auto;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #d2d2d2;
   line-height: 40px;
-  margin-top: 30px;
+  margin-top: 10px;
+}
+.container1Flex3Box1 p {
+  font-size: 13px;
 }
 .container1Flex3Box1 .orderCount {
   width: 86px;
   height: 26px;
-  border: 1px solid #999;
+  border: 1px solid #d2d2d2;
   text-align: right;
 }
 
@@ -420,22 +429,27 @@ header {
   font-weight: bold;
   cursor: pointer;
 }
+.container1Flex3Box2 a {
+  color: white;
+}
+.container1Flex3Box2 > div:hover a {
+  text-decoration: underline;
+}
 .container1Flex3Box2 > div:nth-child(1) {
   background: #da4444;
-  color: white;
 }
 .container1Flex3Box2 > div:nth-child(2) {
   background: #266444;
-  color: white;
 }
 .container1Flex3Box2 > div:nth-child(3) {
   background: #39a875;
-  color: white;
 }
 .container1Flex3Box2 > div:nth-child(4) {
   background-color: white;
+  border: 1px solid #d2d2d2;
+}
+.container1Flex3Box2 > div:nth-child(4) a {
   color: #333;
-  border: 1px solid #999;
 }
 
 .inforWrap {
@@ -642,6 +656,7 @@ header {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .con3BoxWrap > div:nth-child(1) {
   width: 64px;
@@ -734,12 +749,64 @@ header {
   position: relative;
 }
 
-.reivew {
+.reivewWrap {
   width: 100%;
   height: 325px;
   background: #f8f8f8;
   margin-top: 20px;
   border: 1px solid #d2d2d2;
+}
+.reivewWrap .reivew {
+  padding: 12px 20px 19px 20px;
+  line-height: 30px;
+}
+.reivewWrap .reivewbox {
+  margin-left: 10px;
+}
+.reivewWrap .reivewbox img {
+  width: auto;
+}
+.reivewWrap p {
+  margin-top: 13px;
+  font-size: 13px;
+}
+
+.reivewSpan1 {
+  font-weight: 900;
+  font-size: 15px;
+  color: #333;
+}
+
+.reivewSpan2 {
+  font-size: 11px;
+  color: #666;
+}
+
+#contentbox {
+  width: 543px;
+  height: 82px;
+  border: 1px solid #d2d2d2;
+  margin-top: 20px;
+  float: left;
+}
+
+.btnenter {
+  float: right;
+  width: 100px;
+  height: 80px;
+  background-color: #295B37;
+  border: 1px solid #295B37;
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  cursor: pointer;
+}
+.btnenter a {
+  color: white;
+}
+.btnenter a:hover {
+  text-decoration: underline;
 }
 
 #footerMenuWrap {
@@ -765,6 +832,9 @@ header {
 #footerMenuWrap ul li a {
   color: #444;
   cursor: pointer;
+}
+#footerMenuWrap ul li a:hover {
+  text-decoration: underline;
 }
 
 footer {
@@ -829,4 +899,12 @@ footer .footerbox > div:nth-child(3) > div:nth-child(2) {
 }
 footer .footerbox > div:nth-child(3) > div:nth-child(2) > p {
   font-size: 13px;
+}
+
+#btnTop {
+  position: fixed;
+  right: 2%;
+  bottom: 50px;
+  display: none;
+  z-index: 999;
 }

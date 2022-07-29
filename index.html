@@ -8,6 +8,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/sass.css">
     <script src="js/mainjs.js"></script>
+    <script src="js/public.js"></script>
 </head>
 <body>
     <div id="bgWrap"></div>
@@ -24,12 +25,12 @@
         <div id="headermain">
             <div class="headerMenu">
                 <ul>
-                    <li><a href="sub1.html">마이페이지</a> </li>
-                    <li><a href="sub1.html">|로그인</a> </li>
-                    <li><a href="sub1.html">|회원인증/가입</a> </li>
-                    <li><a href="sub1.html">|장바구니</a> </li>
-                    <li><a href="sub1.html">|주문/배송조회</a> </li>
-                    <li><a href="sub1.html">|고객센터</a> </li>
+                    <li><a href="sub1.html">마이페이지&nbsp;</a> </li>
+                    <li><a href="sub1.html">|&nbsp;로그인&nbsp;</a> </li>
+                    <li><a href="sub1.html">|&nbsp;회원인증/가입&nbsp;</a> </li>
+                    <li><a href="sub1.html">|&nbsp;장바구니&nbsp;</a> </li>
+                    <li><a href="sub1.html">|&nbsp;주문/배송조회&nbsp;</a> </li>
+                    <li><a href="sub1.html">|&nbsp;고객센터</a> </li>
                 </ul>
             </div>
             <div class="header1">
@@ -602,6 +603,9 @@
 
         </div>
     </footer>
+    <a id="btnTop" href="#">
+        <img src="img/main/wrapTop.png" alt="">
+    </a>
     
     
 
@@ -610,51 +614,7 @@
         // 오늘의 책
        
 
-                       
-                $(".next1").click(function(){
-                    imgnumber= imgnumber+1;
-                        if(imgnumber>=5){
-                            imgnumber = 1;
-                        }
 
-                        
-                        for(i=1; i<5;i++){
-                        let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
-                        let smallimgNone = document.getElementsByClassName("small"+i);
-                        
-                        if(i==imgnumber){
-                            $(smallimgNumber).css("display","block");
-                        }else{
-                            $(smallimgNone).css("display","none");
-                        }
-                    }
-                    console.log(imgnumber)
-                    document.getElementById("imgNumberSelct").innerHTML = imgnumber;
-                    
-                    
-                });
-
-                $(".prev1").click(function(){
-                    imgnumber= imgnumber-1;
-                        if(imgnumber==0){
-                            imgnumber = 4;
-                        }
-                        
-                        for(i=1; i<5;i++){
-                        let smallimgNumber = document.getElementsByClassName("small"+imgnumber );
-                        let smallimgNone = document.getElementsByClassName("small"+i);
-                        
-                        if(i==imgnumber){
-                            $(smallimgNumber).css("display","block");
-                        }else{
-                            $(smallimgNone).css("display","none");
-                        }
-                    }
-                    console.log(imgnumber)
-                    document.getElementById("imgNumberSelct").innerHTML = imgnumber;
-                    
-                    
-                });
 
 
 

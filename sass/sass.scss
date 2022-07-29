@@ -89,6 +89,7 @@ header{
         width: 240px;
         > img{
             margin-top: 13px;
+            cursor: pointer;
         }
     }
     > div:nth-child(2){
@@ -1230,6 +1231,9 @@ header{
                 color: #444;
                 cursor: pointer;
             }
+            a:hover{
+                text-decoration: underline;
+            }
 
         }
     }
@@ -1332,6 +1336,13 @@ footer{
     padding: 0px;
     display: none;
     cursor: pointer;
+}
+#btnTop{
+    position: fixed;
+    right: 2%;
+    bottom: 50px;
+    display: none;
+    z-index: 999;
 }
 
 
