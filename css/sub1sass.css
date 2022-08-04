@@ -30,7 +30,7 @@ header {
   cursor: pointer;
 }
 #headertop img {
-  width: 50%;
+  width: 475.45px;
   height: 100%;
 }
 #headertop > div:nth-child(1) {
@@ -66,6 +66,10 @@ header {
 }
 .headerMenu a:hover {
   text-decoration: underline;
+}
+.headerMenu > ul {
+  width: 500px;
+  height: 100%;
 }
 
 .header1 {

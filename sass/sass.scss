@@ -34,7 +34,7 @@ header{
     flex-direction: row;
     cursor: pointer;
     img{
-        width: 50%;
+        width: 475.45px;
         height: 100%;
     }
     >div:nth-child(1){
@@ -71,6 +71,10 @@ header{
     }
     li:hover{
         text-decoration: underline;
+    }
+    >ul{
+        width: 500px;
+        height: 100%;
     }
 }
 .header1{
