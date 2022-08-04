@@ -1184,9 +1184,6 @@ footer .footerbox > div:nth-child(3) > div:nth-child(2) > p {
   display: none;
   cursor: pointer;
 }
-.btnPrev3 > img {
-  box-shadow: 0;
-}
 
 .btnNext3 {
   width: 40px;
