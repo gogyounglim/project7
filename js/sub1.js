@@ -1,5 +1,5 @@
 $(function(){
-    $.get("./text/sub1text.txt",function(data){
+    $.get("./text/sub1text.TXT",function(data){
         $(".container3Flex1").html(data);
     })
 
